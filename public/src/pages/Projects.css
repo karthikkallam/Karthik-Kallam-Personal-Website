@@ -1,0 +1,94 @@
+.projects {
+  padding: 3rem;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #0077b6;
+}
+
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 300px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+/* Hide broken image icon and alt text */
+.project-icon:empty,
+.project-icon:not([src]),
+.project-icon[src=""] {
+  display: none; 
+}
+
+/* Ensure alt text is not displayed */
+img.project-icon {
+  font-size: 0; 
+}
+
+.technologies {
+  color: #007bff;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Smooth hover transition for project cards */
+.project-card, .currently-making-card {
+  background-color: var(--theme-card-bg-color, #2a2a2a);
+  color: var(--theme-card-text-color, #ffffff);
+  border: 1px solid var(--theme-border-color, #ffffff);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover, .currently-making-card:hover {
+  background-color: var(--theme-card-hover-bg-color, #444);
+  color: var(--theme-card-hover-text-color, #ffffff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Classic Dark Mode Theme */
+.dark-mode .project-card:hover,
+.dark-mode .currently-making-card:hover {
+  --theme-card-hover-bg-color: #333;
+}
+
+/* Classic Light Mode Theme */
+.light-mode .project-card:hover,
+.light-mode .currently-making-card:hover {
+  --theme-card-hover-bg-color: #e0e0e0;
+}
+
+/* Chess Theme */
+.chess-theme .project-card:hover,
+.chess-theme .currently-making-card:hover {
+  --theme-card-hover-bg-color: #d7b57e;
+}
+
+/* Futuristic Game Theme */
+.futuristic-theme .project-card:hover,
+.futuristic-theme .currently-making-card:hover {
+  --theme-card-hover-bg-color: #222;
+}
