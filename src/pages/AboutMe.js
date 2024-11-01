@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutMe.css';
 import { motion } from 'framer-motion';
 
+
 /* Not using this AboutMe tab, for simplicity on the website and more straight forward deseign, decided that I should get rid of this. Also I have experience with too many different programming languages where it would be difficult to have them all listed here */
 const skills = [
   { name: 'Python', proficiency: 90 },
