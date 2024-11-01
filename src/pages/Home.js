@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Home.css';
-import TCIImage from '../assets/tci-logo.png'; // Assuming the logo is stored in src/assets
+import TCIImage from '../assets/tci-logo.png';
 import { Parallax } from 'react-parallax';
 
-// Importing two versions of each logo (white outline and black outline)
 import EmailLogoWhite from '../assets/email-logo-white.png';
 import EmailLogoBlack from '../assets/email-logo-black.png';
 import GitHubLogoWhite from '../assets/github-logo-white.png';
@@ -11,14 +10,23 @@ import GitHubLogoBlack from '../assets/github-logo-black.png';
 import LinkedInLogoWhite from '../assets/linkedin-logo-white.png';
 import LinkedInLogoBlack from '../assets/linkedin-logo-black.png';
 
-// Importing the TechCarousel component
 import TechCarousel from '../components/TechCarousel/TechCarousel';
 
 function Home({ theme }) {
+  const emailRef = useRef(null);
+  const githubRef = useRef(null);
+  const linkedinRef = useRef(null);
+
   const isLightMode = theme === 'light-mode';
   const emailLogo = isLightMode ? EmailLogoBlack : EmailLogoWhite;
   const githubLogo = isLightMode ? GitHubLogoBlack : GitHubLogoWhite;
   const linkedinLogo = isLightMode ? LinkedInLogoBlack : LinkedInLogoWhite;
+
+  useEffect(() => {
+    if (emailRef.current) emailRef.current.style.opacity = 1;
+    if (githubRef.current) githubRef.current.style.opacity = 1;
+    if (linkedinRef.current) linkedinRef.current.style.opacity = 1;
+  }, [theme]);
 
   return (
     <Parallax bgImage="../assets/background.jpg" strength={500} className="home-parallax">
@@ -30,13 +38,13 @@ function Home({ theme }) {
 
         {/* Social Links */}
         <div className="home-links" data-aos="fade-left">
-          <a href="mailto:kallamkkr@gmail.com" className="home-link">
+          <a href="mailto:kallamkkr@gmail.com" className="home-link" ref={emailRef}>
             <img src={emailLogo} alt="Email Logo" className="link-logo" />
           </a>
-          <a href="https://github.com/karthikkallam" className="home-link">
+          <a href="https://github.com/karthikkallam" className="home-link" ref={githubRef}>
             <img src={githubLogo} alt="GitHub Logo" className="link-logo" />
           </a>
-          <a href="https://www.linkedin.com/in/karthik-kallam-057a66191/" target="_blank" rel="noopener noreferrer" className="home-link">
+          <a href="https://www.linkedin.com/in/karthik-kallam-057a66191/" target="_blank" rel="noopener noreferrer" className="home-link" ref={linkedinRef}>
             <img src={linkedinLogo} alt="LinkedIn Logo" className="link-logo" />
           </a>
         </div>

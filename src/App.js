@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
@@ -11,21 +11,20 @@ const Contact = lazy(() => import('./pages/Contact'));
 const CurrentlyMaking = lazy(() => import('./pages/CurrentlyMaking'));
 
 function App() {
-  const [theme, setTheme] = useState('dark-mode'); // Default theme
+  const [theme, setTheme] = useState('dark-mode');
 
   const changeTheme = (newTheme) => {
     document.body.classList.remove('dark-mode', 'light-mode', 'chess-theme', 'futuristic-theme');
     document.body.classList.add(newTheme);
     setTheme(newTheme);
-
-    // Specific styling for chess theme navbar
-    const navbar = document.querySelector('.navbar');
-    if (newTheme === 'chess-theme') {
-      navbar.style.backgroundColor = '#000'; // Set navbar background to black for chess theme
-    } else {
-      navbar.style.backgroundColor = ''; 
-    }
   };
+
+  useEffect(() => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      navbar.style.backgroundColor = theme === 'chess-theme' ? '#000' : '';
+    }
+  }, [theme]);
 
   return (
     <div className="App">
