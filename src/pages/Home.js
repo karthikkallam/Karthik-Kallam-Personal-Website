@@ -33,7 +33,7 @@ function Home({ theme }) {
           <a href="mailto:kallamkkr@gmail.com" className="home-link">
             <img src={emailLogo} alt="Email Logo" className="link-logo" />
           </a>
-          <a href="https://github.com/your-github" className="home-link">
+          <a href="https://github.com/karthikkallam" className="home-link">
             <img src={githubLogo} alt="GitHub Logo" className="link-logo" />
           </a>
           <a href="https://www.linkedin.com/in/karthik-kallam-057a66191/" target="_blank" rel="noopener noreferrer" className="home-link">
