@@ -6,8 +6,7 @@ nav {
   z-index: 1000; 
   padding: 10px;
   background-color: inherit;
-  backdrop-filter: blur(100000000000000000000000000px); /* Very high blur acting as a dissapearing tool*/
-  transition: background-color 0.5s ease;
+  backdrop-filter: blur(20px);  transition: background-color 0.5s ease;
 }
 
 
